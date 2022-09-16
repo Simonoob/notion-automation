@@ -14,9 +14,9 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: '14'
-            - run: npm ci
+            - run: yarn install
 
             - name: Build output script
-              run: npm Build
+              run: yarn build
             - name: Run built script
               run: node dist/createDailyRecap_viaAPI.js
