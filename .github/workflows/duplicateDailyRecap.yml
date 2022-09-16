@@ -1,0 +1,22 @@
+name: 'Create new Daily Recap'
+on: workflow_dispatch
+env:
+    NOTION_KEY: ${{ secrets.NOTION_KEY }}
+    NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
+jobs:
+    duplicate_recap:
+        name: Create new Document
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '14'
+            - run: npm ci
+
+            - name: Build output script
+              run: npm Build
+            - name: Run built script
+              run: node dist/createDailyRecap_viaAPI.js
