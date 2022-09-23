@@ -2,7 +2,7 @@ name: 'Create new Daily Recap'
 on:
     schedule:
         # every weekday at 9:00
-        - cron: '0 6 * * 1-5'
+        - cron: '0 5 * * 1-5'
 env:
     NOTION_KEY: ${{ secrets.NOTION_KEY }}
     NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
